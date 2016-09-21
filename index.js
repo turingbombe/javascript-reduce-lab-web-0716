@@ -16,3 +16,29 @@ const monologueLines = [
   'No.',
   'I am the one who knocks!'
 ];
+
+let totalBatteries =batteryBatches.reduce((total, battery)=> total += battery,0)
+
+
+// wordCountMap = monologueLines.reduce((final, line) => {
+//   (final[line.length] =  final[line.length]+=1)
+//     }
+//   ,{})
+let wordCountMap = {}
+wordCountMap = monologueLines.reduce((final, line) => {
+  var string_words = line.split(" ")
+  let numOfWords = string_words.length
+  if (final[numOfWords] == undefined){
+    return Object.assign(final, final[numOfWords]= 1)
+  }else{
+    return Object.assign({},final,
+      final[numOfWords] +=1
+    )
+  }
+}, {})
+
+  // 1. numOfWords = how many words in line?
+  // 2. does final have key of numOfWords?
+  // 3. if yes -> increment value of numOfWords key
+  //4 . if no -> set new key/value pair: numOfWords: 1
+
